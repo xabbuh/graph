@@ -6,9 +6,17 @@ class SimpleBuilder
 {
     private $graph;
 
+    private $directed = false;
+
     public function __construct(Graph $graph)
     {
         $this->graph = $graph;
+    }
+
+    public function setDirected($toggle=true)
+    {
+        $this->directed = !!$toggle;
+        return $this;
     }
 
     public function addEdges(array $edges)
@@ -18,7 +26,7 @@ class SimpleBuilder
             $from = $this->graph->createVertex($from, true);
             $to   = $this->graph->createVertex($to,   true);
 
-            $edges []= $from->createEdge($to);
+            $edges []= ($directed) ? $from->createEdgeTo($to) : $from->createEdge($to);
         }
         return $edges;
     }
