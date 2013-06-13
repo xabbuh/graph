@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph;
+namespace Fhaculty\Graph\Builder;
 
-class SimpleBuilder
+class ArrayEdge
 {
     private $graph;
 
