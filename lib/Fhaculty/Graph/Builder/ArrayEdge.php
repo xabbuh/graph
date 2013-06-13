@@ -2,16 +2,11 @@
 
 namespace Fhaculty\Graph\Builder;
 
-class ArrayEdge
+use Fhaculty\Graph\Builder\Base as BuilderBase;
+
+class ArrayEdge extends BuilderBase
 {
-    private $graph;
-
     private $directed = false;
-
-    public function __construct(Graph $graph)
-    {
-        $this->graph = $graph;
-    }
 
     public function setDirected($toggle=true)
     {
